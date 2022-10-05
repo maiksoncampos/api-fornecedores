@@ -1,4 +1,4 @@
-﻿namespace DevIO.Business.Models
+﻿namespace Fornecedores.Business.Models
 {
     public class Endereco : Entity
     {
