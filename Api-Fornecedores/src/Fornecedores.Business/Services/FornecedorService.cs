@@ -52,9 +52,17 @@ namespace Fornecedores.Business.Services
             await _enderecoRepository.Atualizar(endereco);
         }
 
-        public Task<bool> Remover(Guid id)
+        public async Task<bool> Remover(Guid id)
         {
-            throw new NotImplementedException();
+            var enderecos = await _enderecoRepository.ObterEnderecosPorFornecedor(id);
+
+            foreach(var endereco in enderecos)
+            {
+                await _enderecoRepository.Remover(endereco.Id);
+            }
+
+            await _fornecedorRepository.Remover(id);
+            return true;
         }
 
         public void Dispose()
