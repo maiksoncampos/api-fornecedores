@@ -1,4 +1,5 @@
 using Fornecedores.Api.Configuration;
+using Fornecedores.API.Configuration;
 using Fornecedores.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,7 +16,9 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddWebApiConfig();
 
-//builder.Services.ResolveDependencies();
+builder.Services.AddSwaggerConfig();
+
+builder.Services.ResolveDependencies();
 
 var app = builder.Build();
 
@@ -32,5 +35,7 @@ else
 }
 
 app.UseWebApiConfig();
+
+app.UseSwaggerConfig();
 
 app.Run();

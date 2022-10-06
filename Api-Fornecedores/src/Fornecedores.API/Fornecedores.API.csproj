@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Fornecedores.Business\Fornecedores.Business.csproj" />
     <ProjectReference Include="..\Fornecedores.Data\Fornecedores.Data.csproj" />
   </ItemGroup>
