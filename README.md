@@ -5,7 +5,7 @@ Api para CRUD de fornecedores e endereços
 ## Tecnologias Implementadas:
 
 - ASP.NET 6.0
-- ASP.NET WebApi Core with JWT Bearer Authentication
+- ASP.NET WebApi Core 
 - Entity Framework Core 6.0
 - .NET Core Native DI
 - AutoMapper
