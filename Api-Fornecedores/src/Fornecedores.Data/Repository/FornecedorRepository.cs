@@ -17,5 +17,24 @@ namespace Fornecedores.Data.Repository
                 .Include(c => c.Enderecos)
                 .FirstOrDefaultAsync(c => c.Id == id);
         }
+
+        public async Task<IEnumerable<Fornecedor>> Buscar(FiltroFornecedor filtro)
+        {
+            var qry = Db.Fornecedores.AsQueryable();
+
+            if (!string.IsNullOrEmpty(filtro.Nome))
+                qry = qry.Where(x => x.Nome.Contains(filtro.Nome));
+
+            if (!string.IsNullOrEmpty(filtro.CNPJ))
+                qry = qry.Where(x => x.CNPJ.Equals(filtro.CNPJ));
+
+            if (!string.IsNullOrEmpty(filtro.Cidade))
+                qry = qry.Where(x => x.Enderecos.Any( c => c.Cidade.Contains(filtro.Cidade)));
+
+            return await qry.AsNoTracking()
+                .Include(c => c.Enderecos)
+                .ToListAsync();
+        }
+
     }
 }

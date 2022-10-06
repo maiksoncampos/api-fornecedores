@@ -75,5 +75,13 @@ namespace Fornecedores.API.Controllers
             return _mapper.Map<FornecedorViewModel>(await _fornecedorRepository.ObterFornecedorEnderecos(id));
         }
 
+
+        [HttpGet("listar-fornecedores")]
+        public async Task<IEnumerable<FornecedorViewModel>> ListarFornecedores([FromQuery] FiltroFornecedor filtro)
+        {
+
+            return _mapper.Map< IEnumerable<FornecedorViewModel>>(await _fornecedorRepository.Buscar(filtro));
+
+        }
     }
 }
