@@ -35,6 +35,5 @@ namespace Fornecedores.Data.Repository
                 .Include(c => c.Enderecos)
                 .ToListAsync();
         }
-
     }
 }
